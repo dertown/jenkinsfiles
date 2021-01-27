@@ -1,0 +1,27 @@
+pipeline {
+  agent ansible
+  stages {
+    stage('build') {
+      steps {
+        echo " test ansible"
+        echo "get ansible scripts"
+        git branch: 'master',
+        credentialsId: 'github',
+         url: 'https://github.com/dertown/splunk_ansible.git'
+        
+      }
+    }
+    stage('test') {
+      steps {
+        sh 'python splunktest.py'
+      }
+      post {
+        always {
+          junit 'test-reports/*.xml'
+        }
+      }    
+    }
+  }
+}
+
+
