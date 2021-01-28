@@ -5,8 +5,7 @@ pipeline {
       steps {
         echo " test ansible"
         echo "get ansible scripts"
-        git branch: 'master',
-            credentialsId: 'github',
+        git credentialsId: 'github',
             url: 'https://github.com/dertown/splunk_ansible.git'
 
         
