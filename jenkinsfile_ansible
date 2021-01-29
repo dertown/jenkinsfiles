@@ -1,5 +1,7 @@
 pipeline {
-  agent ansible
+  agent {
+    ansible 
+    }
   stages {
     stage('build') {
       steps {
