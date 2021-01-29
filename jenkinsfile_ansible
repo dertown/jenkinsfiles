@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label ansible 
+    label ansible_build 
     }
   stages {
     stage('build') {
